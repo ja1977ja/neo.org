@@ -19,6 +19,7 @@ function showDetail(ele) {
 function blockInfo() {
     var json = { 'jsonrpc': '2.0', 'method': 'getblockcount', 'params': [], 'id': 1 };
     var str = JSON.stringify(json);
+    countDown(lastt);
     $.ajax({
         type: 'POST',
         url: send_url,
@@ -30,7 +31,6 @@ function blockInfo() {
                 getListdata();
                 $("#blohei").html(block_height);
             }
-            countDown(lastt);
         },
         fail: function () {
             
@@ -234,3 +234,4 @@ function showCharts(data) {
     myChart.setOption(option);
 }
 
+getSeed();
